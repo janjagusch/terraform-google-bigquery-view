@@ -33,8 +33,8 @@ You can find an example in the [example_view](./example_view) folder.
 In your `main.tf`:
 
 ```
-module "example_view" {
-  source  = "janjagusch/terraform-google-bigquery-view"
+module "bigquery-view" {
+  source  = "janjagusch/bigquery-view/google"
   version = "0.1.0"
 
   config_file = "./example_view/config.yaml"
