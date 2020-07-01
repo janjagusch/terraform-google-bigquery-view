@@ -29,4 +29,4 @@ jobs:
         - make validate_terraform
     - stage: release
       script:
-        - bin/check_release
+        - bin/check_release "${TRAVIS_TAG}"
