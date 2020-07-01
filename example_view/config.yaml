@@ -1,0 +1,4 @@
+dataset_id: my_dataset
+table_id: my_view
+query_file: ./query.sql
+description: My example view

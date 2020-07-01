@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+compare_versions() {
+    version_1="${1}"
+    version_2="${2}"
+    if [ "${1}" != "${2}" ]; then
+        echo "Version mismatch!"
+        exit "1"
+    fi
+}
+
+main() {
+    release_version="${1}"
+    module_version="$(cat .version)"
+
+    echo "Release version: ${release_version}"
+    echo "Module version: ${module_version}"
+
+    compare_versions "${release_version}" "${module_version}"
+}
+
+main "$@"
