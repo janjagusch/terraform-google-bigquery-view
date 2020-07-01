@@ -1,0 +1,32 @@
+dist: xenial
+language: bash
+
+env:
+  - TF_VERSION="0.12.23"
+
+stages:
+  - lint
+  - validate
+  - name: release
+    if: tag IS present
+
+before_install:
+  - wget https://releases.hashicorp.com/terraform/"$TF_VERSION"/terraform_"$TF_VERSION"_linux_amd64.zip
+  - unzip terraform_"$TF_VERSION"_linux_amd64.zip
+  - sudo mv terraform /usr/local/bin/
+  - rm terraform_"$TF_VERSION"_linux_amd64.zip
+
+install:
+  - terraform init
+
+jobs:
+  include:
+    - stage: lint
+      script:
+        - make lint_terraform
+    - stage: validate
+      script:
+        - make validate_terraform
+    - stage: release
+      script:
+        - bin/check_release
