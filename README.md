@@ -28,20 +28,6 @@ Where the `query_file` path is relative to the location of `config.yaml`. The qu
 
 You can find an example in the [example_view](./example_view) folder.
 
-### Accessing Module
-
-In your `main.tf`:
-
-```
-module "bigquery-view" {
-  source  = "janjagusch/bigquery-view/google"
-  version = "0.1.0"
-
-  config_file = "./example_view/config.yaml"
-  query_vars = { my_col = "test" } # only applicable to `query_file` configs
-}
-```
-
 ## Authors
 
 * Jan-Benedikt Jagusch <jan.jagusch@gmail.com>
