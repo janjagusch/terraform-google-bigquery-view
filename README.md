@@ -24,7 +24,7 @@ query_file: ./query.sql
 description: My example view
 ```
 
-Where the `query_file` path is relative to the location of `config.yaml`.
+Where the `query_file` path is relative to the location of `config.yaml`. The query file can also contain placeholder variables that can be templated.
 
 You can find an example in the [example_view](./example_view) folder.
 
@@ -38,6 +38,7 @@ module "bigquery-view" {
   version = "0.1.0"
 
   config_file = "./example_view/config.yaml"
+  query_vars = { my_col = "test" } # only applicable to `query_file` configs
 }
 ```
 
